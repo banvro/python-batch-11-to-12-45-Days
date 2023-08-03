@@ -110,17 +110,3 @@ age = int(input("Enter your age : "))
 # if choice == "1":
     
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
