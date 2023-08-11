@@ -66,17 +66,19 @@
 # 2 x 2 = 4
 # 2 x 3 = 6
 
+a = 200000000000
 
-def xyz(abc):
-    for i in range(1, 11):
+
+# def xyz(abc):
+#     for i in range(1, 11):
         
-        # print(abc, 'x', i, '=', abc * i)
+#         # print(abc, 'x', i, '=', abc * i)
 
-        print(f"{abc} x {i} = {abc * i}")
+#         print(f"{abc} x {i} = {abc * i}")
 
 
-tab = int(input("Enter table number : "))
-xyz(tab)
+# tab = int(input("Enter table number : "))
+# xyz(tab)
 
 
 
