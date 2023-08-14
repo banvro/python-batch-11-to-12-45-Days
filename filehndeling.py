@@ -111,8 +111,8 @@
 # obj = xyz(12, 10)
 # obj.some()
 
-obj1 = abcs(12, 10)
-obj1.mthd()
+# obj1 = abcs(12, 10)
+# obj1.mthd()
 
 
 
