@@ -95,6 +95,20 @@
 
 
 
+# a = 10
+# b = 0
+
+# try:
+#     c = a / b
+
+# except Exception:
+#     pass 
+
+# else:
+#     print(c)
+
+# finally:
+#     print("i am dome")
 
 
 
