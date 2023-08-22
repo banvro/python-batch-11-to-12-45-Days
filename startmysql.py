@@ -26,8 +26,15 @@ conwc = mysql.connector.connect(host = "localhost", user = "root", password = "a
 couser = conwc.cursor()
 
 # z = couser.execute('create database laptop;')
-z = couser.execute('insert into mobileinfo values(1, "Apple", "Red", 10000);')
+# z = couser.execute('insert into mobileinfo values(1, "Apple", "Red", 10000);')
 
+couser.execute('select * from mobileinfo where mobile_s_nmbr = 3;')
+
+y = couser.fetchall()
+# print(y)
+
+for i in y:
+    print(i)
 
 conwc.commit()
 
