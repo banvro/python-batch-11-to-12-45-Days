@@ -22,9 +22,10 @@
 # fil.write("\nthis is new data..")
 # fil.close()
 
-x = int(input("ashdvjasdvja"))
-
-
+x = int(input("Enter first number : "))
+x = str(x)
+zx = open("a.txt", 'w')
+zx.write(x)
 
 
 
