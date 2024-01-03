@@ -12,3 +12,28 @@
 xyz = "this is car"
 
 ["this", "is", "car"]
+
+
+solution:
+
+
+# a = ["this is a car", "hlo"]
+
+# zx = a[0]
+
+# st = zx[::-1]
+
+# lst = []
+
+# x = ""
+
+# for i in st:
+#     if i == " ":
+#         lst.append(x)
+#         x = ""
+#     else:
+#         x = x + i
+
+# lst.append(x)
+
+# print(lst)
