@@ -1,0 +1,26 @@
+
+# List : ordered, allow duplicate values, mutable
+
+# Tuple : ordered, allow duplicate values, imutable
+    
+# Set : unordered, do not allow duplicate values, mutable
+
+# {}
+
+# st = {10, 20, "hlo", "czr", 10.8, True, 100, 100, 10}
+
+
+# to add new data in set:
+#     1) add()
+
+# st.add(20000)
+
+# to delete data in set:
+#     1) pop()
+#     2) remove()
+
+# st.pop()
+
+# st.remove(100)
+
+# print(st)
