@@ -1,0 +1,33 @@
+{% extends "navfooter.html" %}
+
+{% block body %}
+
+
+<div style="padding: 29px; padding-left: 15%; padding-right: 15%;">
+    <h1 style="text-align: center; color: red; font-size: 32px;">Conatct Us</h1>
+
+    <div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Phone Number">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Your Message here.."></textarea>
+        </div>
+        <divs style="display: flex; justify-content: center;">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}
