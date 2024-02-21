@@ -15,7 +15,11 @@ def contactus(request):
 
 
 def servicesus(request):
-    return render(request, "services.html")
+    # ORM 
+    my_data = ContactUs.objects.all().order_by("-id")
+
+    context = {"records" : my_data}
+    return render(request, "services.html", context)
 
 
 
