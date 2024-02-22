@@ -7,6 +7,8 @@ urlpatterns = [
     path("contact", views.contactus, name="contact"),
     path("services", views.servicesus, name="services"),
 
-    path("save-my-data", views.savethisdaa)
+    path("save-my-data", views.savethisdaa),
+
+    path("delete-record/<int:myid>", views.deletethisdata)
    
 ]

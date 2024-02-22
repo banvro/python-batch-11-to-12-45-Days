@@ -35,6 +35,18 @@ def savethisdaa(request):
         mydata = ContactUs(username = fullname, useremail = email, phone_number = phonenumer, message = message)
         mydata.save()
 
-        return redirect("contact")
+        return redirect("services")
+    
 
     # return HttpResponse(f"data saved sucessfully.....! {fullname}, {email} {phonenumer}, {message}")
+
+
+
+
+def deletethisdata(request, myid):
+    
+    # data = ContactUs.objects.all()
+    data = ContactUs.objects.get(id = myid)
+    data.delete()
+
+    return redirect("services")
