@@ -1,0 +1,37 @@
+{% extends "navfooter.html" %}
+
+{% block body %}
+
+
+<div style="padding: 29px; padding-left: 15%; padding-right: 15%;">
+    <h1 style="text-align: center; color: red; font-size: 32px;">Update Data</h1>
+
+    <div>
+        
+        <form action="save-my-data" method = "post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                <input type="text" value="{{yourdata.username}}" name="fname" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" value="{{yourdata.useremail}}" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                <input type="number" value="{{yourdata.phone_number}}" name="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Phone Number" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                <textarea class="form-control"  name="msg" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Your Message here.." required>{{yourdata.message}}</textarea>
+            </div>
+            <divs style="display: flex; justify-content: center;">
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock body %}

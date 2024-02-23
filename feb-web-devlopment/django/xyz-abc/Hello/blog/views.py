@@ -50,3 +50,11 @@ def deletethisdata(request, myid):
     data.delete()
 
     return redirect("services")
+
+
+
+def updatethisdata(request, xyz):
+    
+    data = ContactUs.objects.get(id = xyz)
+
+    return render(request, "contactus-update.html", {"yourdata" : data})

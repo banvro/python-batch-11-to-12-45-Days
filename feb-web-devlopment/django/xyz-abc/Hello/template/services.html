@@ -21,14 +21,18 @@
             <div class="col-sm-6 mb-3 mb-sm-0">
               <div class="card" style="margin-bottom: 23px;">
                 <div class="card-body">
-                  <!-- {{data.id}} -->
+                  {{data.id}}
                   <h5 class="card-title">Full Name : <span style="font-size: 20px; font-weight: 400; color: red;">{{data.username}}</span></h5>
                   <h5 class="card-title">User Email : <span style="font-size: 20px; font-weight: 400; color: red;">{{data.useremail}}</span></h5>
                   <h5 class="card-title">User Number : <span style="font-size: 20px; font-weight: 400; color: red;">{{data.phone_number}}</span></h5>
                   <p class="card-text">{{data.message}}.</p>
 
                   <div style="display: flex; justify-content: space-around;">
-                    <button type="button" class="btn btn-success">Update</button>
+                    <form action="updatethis/{{data.id}}" method="post">
+                      {% csrf_token %}
+                       <button type="submit" class="btn btn-success">Update</button>
+                    </form>
+
 
                     <form action="delete-record/{{data.id}}" method="post">
                       {% csrf_token %}

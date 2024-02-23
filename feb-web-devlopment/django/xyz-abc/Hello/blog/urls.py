@@ -9,6 +9,8 @@ urlpatterns = [
 
     path("save-my-data", views.savethisdaa),
 
-    path("delete-record/<int:myid>", views.deletethisdata)
+    path("delete-record/<int:myid>", views.deletethisdata),
+
+    path("updatethis/<int:xyz>", views.updatethisdata)
    
 ]
