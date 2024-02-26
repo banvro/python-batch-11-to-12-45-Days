@@ -8,7 +8,7 @@
 
     <div>
         
-        <form action="save-my-data" method = "post">
+        <form action="/upadate-this-data/{{yourdata.id}}" method = "post">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Full Name</label>

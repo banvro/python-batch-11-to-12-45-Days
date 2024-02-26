@@ -58,3 +58,25 @@ def updatethisdata(request, xyz):
     data = ContactUs.objects.get(id = xyz)
 
     return render(request, "contactus-update.html", {"yourdata" : data})
+
+
+def updatedatanow(request, upateid):
+    if request.method == "POST":
+        fullname = request.POST.get("fname")
+        # fullname = request.POST["fname"]
+        
+        email = request.POST.get("email")
+        phonenumer = request.POST.get("number")
+        message = request.POST.get("msg")
+
+        mydata = ContactUs.objects.get(id = upateid)
+
+        mydata.username = fullname
+        mydata.useremail = email
+        mydata.phone_number = phonenumer
+        mydata.message = message
+
+        mydata.save()
+
+
+    return redirect("services")

@@ -11,6 +11,8 @@ urlpatterns = [
 
     path("delete-record/<int:myid>", views.deletethisdata),
 
-    path("updatethis/<int:xyz>", views.updatethisdata)
+    path("updatethis/<int:xyz>", views.updatethisdata),
+
+    path("upadate-this-data/<int:upateid>", views.updatedatanow)
    
 ]
