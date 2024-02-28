@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+
+<div style="padding: 61px; padding-left: 14%; padding-right: 16%;">
+    <h2 style="text-align: center; color: red;">My Todos</h2>
+    <form action="/save-todo" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Title">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Discription</label>
+            <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Your Discription"></textarea>
+          </div>
+    
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-success">Add Todo</button>
+          </div>
+    </form>
+</div>
+
+
+
+<div style="padding: 23px;">
+    <h2 style="text-align: center;
+    color: red;">My All Todos</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Added Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in alltodo %}
+          <tr>
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.title}}</td>
+            <td>{{i.discription}}</td>
+            <td>{{i.datetime}}</td>
+            <td>{{i.title}}</td>
+          </tr>
+          {% endfor %}
+        
+        </tbody>
+      </table>
+</div>
+
+
+
+
+{% endblock body %}
