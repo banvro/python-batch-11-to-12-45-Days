@@ -40,13 +40,77 @@
         </thead>
         <tbody>
             {% for i in alltodo %}
-          <tr>
-            <th scope="row">{{i.id}}</th>
-            <td>{{i.title}}</td>
-            <td>{{i.discription}}</td>
-            <td>{{i.datetime}}</td>
-            <td>{{i.title}}</td>
-          </tr>
+
+         
+          {% if i.tododone %}
+            <tr class="table-success">
+              {% else %}
+            <tr>
+            {% endif %}
+              <th scope="row">{{i.id}}</th>
+              <td>{{i.title}}</td>
+              <td>{{i.discription}}</td>
+              <td>{{i.datetime}}</td>
+              <td>
+
+                {% if i.tododone %}
+                
+                <div style="display: flex; justify-content: space-around;">
+                  <button type="button" class="btn btn-danger" disabled>Delete</button>
+  
+                  <form action="done-todo/{{i.id}}" method="post">
+                    {% csrf_token %} 
+                    <button type="submit" class="btn btn-info" disabled>Done</button>
+                  </form>
+                </div>
+
+                  {% else %}
+
+                  <div style="display: flex; justify-content: space-around;">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+    
+                    <form action="done-todo/{{i.id}}" method="post">
+                      {% csrf_token %} 
+                      <button type="submit" class="btn btn-info" >Done</button>
+                    </form>
+                  </div>
+
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Todo</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div>
+                            <p>Are you sure to delete this todo</p>
+                            <p>Click on delete to delete todo</p>
+                            <form action="delete-todo/{{i.id}}" method="post">
+                              {% csrf_token %} 
+                              <button type="submit" class="btn btn-danger" >Delect this todo</button>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                {% endif %}
+
+
+                  </td>
+            </tr>
+
+
           {% endfor %}
         
         </tbody>

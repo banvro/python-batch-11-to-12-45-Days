@@ -19,3 +19,19 @@ def savethinthistodo(request):
         savethis.save()
 
     return redirect("home")
+
+
+def donetodo(request, id):
+    todo = mytodo.objects.get(id = id)
+
+    todo.tododone = True
+    todo.save()
+
+    return redirect("home")
+
+def deletetodo(request, id):
+    todo = mytodo.objects.get(id = id)
+
+    todo.delete()
+
+    return redirect("home")
