@@ -7,7 +7,7 @@
     <h1 style="text-align: center; color: red; font-size: 32px;">Conatct Us</h1>
 
     <div>
-        <form action="save-my-data" method = "post">
+        <form action="save-my-data" method = "post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Full Name</label>
@@ -25,6 +25,13 @@
                 <label for="exampleFormControlTextarea1" class="form-label">Message</label>
                 <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Your Message here.." required></textarea>
             </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Upload Image</label>
+                <input type="file" name="img" class="form-control" id="exampleFormControlInput1" placeholder="Uplode your image" required>
+            </div>
+
+
             <divs style="display: flex; justify-content: center;">
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>

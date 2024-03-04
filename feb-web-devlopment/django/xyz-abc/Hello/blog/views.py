@@ -31,8 +31,9 @@ def savethisdaa(request):
         email = request.POST.get("email")
         phonenumer = request.POST.get("number")
         message = request.POST.get("msg")
+        myimg = request.FILES.get('img')
 
-        mydata = ContactUs(username = fullname, useremail = email, phone_number = phonenumer, message = message)
+        mydata = ContactUs(username = fullname, useremail = email, phone_number = phonenumer, message = message, myimage = myimg)
         mydata.save()
 
         return redirect("services")

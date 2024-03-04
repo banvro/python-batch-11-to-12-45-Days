@@ -8,4 +8,5 @@ class ContactUs(models.Model):
     useremail = models.EmailField(max_length=254)
     phone_number = models.IntegerField()
     message = models.TextField()
+    myimage = models.ImageField(upload_to = "userprofile", null = True, blank = True)
     
