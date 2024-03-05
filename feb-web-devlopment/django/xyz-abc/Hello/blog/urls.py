@@ -13,6 +13,8 @@ urlpatterns = [
 
     path("updatethis/<int:xyz>", views.updatethisdata),
 
-    path("upadate-this-data/<int:upateid>", views.updatedatanow)
+    path("upadate-this-data/<int:upateid>", views.updatedatanow),
+
+    path("search", views.searchthisdata, name = "mysearch")
    
 ]

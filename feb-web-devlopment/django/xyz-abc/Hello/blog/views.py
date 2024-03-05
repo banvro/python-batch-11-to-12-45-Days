@@ -81,3 +81,23 @@ def updatedatanow(request, upateid):
 
 
     return redirect("services")
+
+
+
+# email 
+# django forms 
+# Session 
+# cookies 
+# Authantication system 
+
+
+def searchthisdata(request):
+    xyz = request.GET['query']
+
+    
+    
+    searchdata = ContactUs.objects.filter(username = xyz) or ContactUs.objects.filter(phone_number = xyz)
+
+    context = {"records" : searchdata}
+
+    return render(request, "services.html", context)
