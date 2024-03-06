@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 from blog.models import ContactUs
+from django.core.mail import EmailMessage
+from django.contrib import messages
 
 def home(request):
     return render(request, "home.html")
@@ -33,8 +35,26 @@ def savethisdaa(request):
         message = request.POST.get("msg")
         myimg = request.FILES.get('img')
 
+        myemailmessage = f""""
+        this is user contact us form data
+        
+        User Name :  {fullname}
+        User Email :   {email}
+        Phone Number:  {phonenumer}
+        Message :     {message}
+        
+        THANK YOU :)
+        """
+
+        # mail = EmailMessage("This Email Comming from Django", myemailmessage, "banvro07@gmail.com", ["banvro07@gmail.com", "anchalrahi0@gmail.com", "sweetpreet.kaur1@gmail.com"])
+
+        # mail.send()
+
         mydata = ContactUs(username = fullname, useremail = email, phone_number = phonenumer, message = message, myimage = myimg)
         mydata.save()
+
+
+        messages.success(request, "ok", "Data Saved Sucessfully...!")
 
         return redirect("services")
     
@@ -94,10 +114,11 @@ def updatedatanow(request, upateid):
 def searchthisdata(request):
     xyz = request.GET['query']
 
-    
-    
     searchdata = ContactUs.objects.filter(username = xyz) or ContactUs.objects.filter(phone_number = xyz)
 
     context = {"records" : searchdata}
 
     return render(request, "services.html", context)
+
+
+

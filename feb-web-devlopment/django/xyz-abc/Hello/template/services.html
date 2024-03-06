@@ -8,7 +8,13 @@
     <div style="text-align: center;">
         <h1 style="font-size: 30px; margin-bottom: 25px; color: red;">My All COntacts Us Record</h1>
     </div>
-
+    {% if messages %}
+      
+    <div class="alert alert-success" role="alert">
+      {{messages}}
+    </div>
+    
+    {% endif %}
 
     <div>
         <div class="row">
