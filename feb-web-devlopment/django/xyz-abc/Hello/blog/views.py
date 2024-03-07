@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from blog.models import ContactUs
 from django.core.mail import EmailMessage
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 def home(request):
     return render(request, "home.html")
@@ -53,8 +54,12 @@ def savethisdaa(request):
         mydata = ContactUs(username = fullname, useremail = email, phone_number = phonenumer, message = message, myimage = myimg)
         mydata.save()
 
+        messages.success(request, "Your Data Saved Sucessfully in database")
+        # messages.info(request, "Your Data Saved Sucessfully in database")
+        # messages.warning(request, "Your Data Saved Sucessfully in database")
+        # messages.error(request, "Your Data Saved Sucessfully in database")
 
-        messages.success(request, "ok", "Data Saved Sucessfully...!")
+
 
         return redirect("services")
     
@@ -69,6 +74,8 @@ def deletethisdata(request, myid):
     # data = ContactUs.objects.all()
     data = ContactUs.objects.get(id = myid)
     data.delete()
+
+    messages.warning(request, "Your Data Deleteed From database...! :)")
 
     return redirect("services")
 
@@ -122,3 +129,18 @@ def searchthisdata(request):
 
 
 
+def signup(request):
+    if request.method == "POST":
+        usernae = request.POST.get("Username")
+        email = request.POST.get("email")
+        Password = request.POST.get("Password")
+        FullName = request.POST.get("FullName")
+
+        saveuser = User.objects.create_user(username = usernae, email = email, password=Password, first_name = FullName)
+        saveuser.save()
+
+        messages.success(request, "User Added Sucessfulyy.....!")
+
+
+
+    return render(request, "signup.html")

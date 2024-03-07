@@ -16,5 +16,7 @@ urlpatterns = [
     path("upadate-this-data/<int:upateid>", views.updatedatanow),
 
     path("search", views.searchthisdata, name = "mysearch")
+    ,
+    path("signup", views.signup, name = "signup"),
    
 ]

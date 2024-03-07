@@ -2,33 +2,27 @@
 
 {% block body %}
 
-
-
 <div style="padding: 55px;padding-top: 30px;">
     <div style="text-align: center;">
         <h1 style="font-size: 30px; margin-bottom: 25px; color: red;">My All COntacts Us Record</h1>
     </div>
+
     {% if messages %}
-      
-    <div class="alert alert-success" role="alert">
-      {{messages}}
+
+    {% for x in messages %}
+    <div class="alert alert-{{x.tags}}" role="alert">
+      {{x}}
     </div>
-    
+    {% endfor %}
+
     {% endif %}
 
     <div>
         <div class="row">
-
-            
-
             {% for data in records %}
-
-           
             <div class="col-sm-6 mb-3 mb-sm-0">
               <div class="card" style="margin-bottom: 23px;">
                 <div class="card-body">
-                  {{data.id}}
-                  {{data.myimage}}
                   <img src="/media/{{data.myimage}}" alt="image here" style="    max-width: 160px;">
                   <h5 class="card-title">Full Name : <span style="font-size: 20px; font-weight: 400; color: red;">{{data.username}}</span></h5>
                   <h5 class="card-title">User Email : <span style="font-size: 20px; font-weight: 400; color: red;">{{data.useremail}}</span></h5>
