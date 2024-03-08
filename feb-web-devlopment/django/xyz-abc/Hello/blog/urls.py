@@ -18,5 +18,9 @@ urlpatterns = [
     path("search", views.searchthisdata, name = "mysearch")
     ,
     path("signup", views.signup, name = "signup"),
+
+    path("login", views.loginhere, name = "login"),
+
+    path("logoutthis", views.logouthere, name = "logout"),
    
 ]

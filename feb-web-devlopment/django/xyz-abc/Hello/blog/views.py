@@ -5,6 +5,7 @@ from blog.models import ContactUs
 from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 def home(request):
     return render(request, "home.html")
@@ -133,10 +134,10 @@ def signup(request):
     if request.method == "POST":
         usernae = request.POST.get("Username")
         email = request.POST.get("email")
-        Password = request.POST.get("Password")
+        mypass = request.POST.get("mypass")
         FullName = request.POST.get("FullName")
 
-        saveuser = User.objects.create_user(username = usernae, email = email, password=Password, first_name = FullName)
+        saveuser = User.objects.create_user(username = usernae, email = email, password=mypass, first_name = FullName)
         saveuser.save()
 
         messages.success(request, "User Added Sucessfulyy.....!")
@@ -144,3 +145,25 @@ def signup(request):
 
 
     return render(request, "signup.html")
+
+
+def loginhere(request):
+    if request.method == "POST":
+        name = request.POST.get("username")
+        passx = request.POST.get("password")
+    
+        usercheck = authenticate(username=name, password=passx)
+
+        if usercheck is not None:
+            login(request, usercheck)
+            messages.success(request, "Login Sucessfully done..!")
+        
+        else:
+            messages.warning(request, "PLease Eter vaild Crentationals! ")
+
+    return render(request, "login.html")
+
+
+def logouthere(request):
+    logout(request)
+    return redirect("login")
