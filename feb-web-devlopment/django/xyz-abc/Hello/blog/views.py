@@ -6,6 +6,8 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 
 def home(request):
     return render(request, "home.html")
@@ -13,11 +15,11 @@ def home(request):
 def aboutus(request):
     return render(request, "about.html")
 
-
+@login_required
 def contactus(request):
     return render(request, "contactus.html")
 
-
+@login_required
 def servicesus(request):
     # ORM 
     my_data = ContactUs.objects.all().order_by("-id")
@@ -148,6 +150,9 @@ def signup(request):
 
 
 def loginhere(request):
+    if request.user.is_authenticated:
+        return redirect('contact')
+
     if request.method == "POST":
         name = request.POST.get("username")
         passx = request.POST.get("password")
@@ -157,6 +162,7 @@ def loginhere(request):
         if usercheck is not None:
             login(request, usercheck)
             messages.success(request, "Login Sucessfully done..!")
+            return redirect('contact')
         
         else:
             messages.warning(request, "PLease Eter vaild Crentationals! ")
