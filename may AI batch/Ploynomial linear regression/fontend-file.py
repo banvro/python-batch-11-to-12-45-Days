@@ -12,23 +12,37 @@ app.config(background = "lightgreen")
 app.title("Pretioner")
 
 def check_slaes():
-    tem = inp.get()
-    tem = np.array(float(tem))
-    tem = tem.reshape(-1, 1)
+    temp = float(inp.get())
+
+    array_temp = np.array(temp)
+    reshape_temp = array_temp.reshape(-1, 1)
+
     ploy = PolynomialFeatures(degree = 2)
-    data = ploy.fit_transform(tem)
 
-    print(data[0], "xxxxxxxxxxxxxxxx")
-    all_betas = mymodel.coef_
-    my_interept = mymodel.intercept_
-    print(all_betas)
-    # y = b0 + b1x1 + b2x2 + b3x3
+    modifyed_temp = ploy.fit_transform(reshape_temp)
+    print(modifyed_temp)
+    # print(f"""
+    #       original temo : {reshape_temp}
+    #       modifyed tem : {modifyed_temp}""")
 
-    y = my_interept + (all_betas[0]*data[0][0]) + (all_betas[1]*data[0][1]) + (all_betas[2]*data[0][2])
+    beats = mymodel.coef_
+    intercet = mymodel.intercept_
+
+    print(f"""
+          beats are : {beats}, 
+          intercet is : {intercet}""")
+    
+    # sales = b0 + b1x1 + b2x2 + b3x3
 
 
-    lblshow.config(text = f"Ice Cream Sales (units) : {y}")
+    unit_sales = intercet + (beats[0]*modifyed_temp[0][0]) + (beats[1]*modifyed_temp[0][1]) + (beats[2]*modifyed_temp[0][2])
 
+    unit_sales = str(unit_sales)
+
+    
+    lblshow.config(text = f"Unit Sales is : {unit_sales[ : 5]}")
+
+    inp.delete(0, tk.END)
 
 lbl = tk.Label(app, text = "Tempreture In Celcius", font = ("robort", 30, "bold"), foreground = "darkgreen", background = "lightgreen")
 lbl.pack(pady = 20)
