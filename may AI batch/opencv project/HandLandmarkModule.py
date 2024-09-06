@@ -12,7 +12,7 @@ class MyHandTrackingModule:
         self.hands = self.map_hands.Hands()
         self.show_landmarks = mp.solutions.drawing_utils
         self.change_landmarks_color = self.show_landmarks.DrawingSpec(color = (23, 240, 7), thickness = 5)
-        self.change_connection_cawingSolor = self.show_landmarks.DrawingSpec(color = (228, 7, 240), thickness = 10)
+        self.change_connection_cawingSolor = self.show_landmarks.DrawingSpec(color = (146, 235, 52), thickness = 2)
         self.result = None
     
 
