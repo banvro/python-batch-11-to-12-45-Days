@@ -1,5 +1,4 @@
 import cv2
-import cv2.data
 import numpy as np
 import os
 
@@ -12,7 +11,7 @@ import os
 
 # peoples = ["elon musk"]
 peoples = ["elon musk", "joker", "kristina_pemenova"]
-path = r"C:\Users\17nru\OneDrive\Desktop\face reoginizer\images"
+path = r"C:\Users\17nru\OneDrive\Desktop\face reoginizer open cv\images"
 
 face_detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
@@ -47,10 +46,12 @@ fetaures_array = np.array(features, dtype="object")
 
 lables_array = np.array(lables)
 
-
+ 
 train_data = cv2.face.LBPHFaceRecognizer_create()
 
 train_data.train(fetaures_array, lables_array)
+
+train_data.save("face_predctor_model.yml")
 
 
 np.save("featutus.npy", fetaures_array)
