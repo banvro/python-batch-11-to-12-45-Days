@@ -1,0 +1,50 @@
+{% extends "head_and_footer.html" %}
+
+{% block title %}Contact{% endblock title %}
+
+
+{% block main_container %}
+
+
+<div style="padding-top: 4%; padding-left: 15%; padding-right: 15%; padding-bottom: 21px;">
+    <h2 style="text-align: center; color: green; margin-bottom: 17px;">Contact Us</h2>
+    <form action="/save-this-data" method="post">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+            <input type="text" name="fname" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+            <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="5" placeholder="Enter your message" ></textarea>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" name="py" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">Python</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="java" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">Java</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" name="js" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">JavaScript</label>
+        </div>
+        
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+
+
+    </form>
+</div>
+
+
+
+
+
+{% endblock main_container %}
