@@ -1,0 +1,35 @@
+{% extends "header_footer.html" %}
+
+{% block content %}
+
+
+<div>
+    <h1 style="text-align: center;
+    font-size: 25px; color: green; margin-top: 13px;
+    margin-bottom: 13px;">Contact Us form</h1>
+    <div style="padding-left: 16%; padding-right: 16%; padding-top: 9px;">
+        <form action="/savingdata" method = "post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                <input type="text" name = "fname" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" name = "email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your message..."></textarea>
+            </div>
+    
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
