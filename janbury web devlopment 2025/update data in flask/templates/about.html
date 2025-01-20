@@ -1,0 +1,43 @@
+{% extends "header_footer.html" %}
+
+
+{% block content %}
+
+<div style="padding: 38px; padding-left: 9%;  padding-right: 9%;">
+    <h1 style="text-align: center; font-size: 24px; color: green;margin-bottom: 12px;">My Contact Records</h1>
+    
+    <!-- <h1>{{records}}</h1> -->
+
+    <div>
+        <div class="row">
+
+            {% for record in records %}
+            <div class="col-sm-6 mb-3 mb-sm-0">
+              <div class="card mb-3">
+                <div class="card-body"> 
+                  <h5 class="card-title">{{record.username}}</h5>
+                  <h6>User Email : {{record.email}}</h6>
+                  <p class="card-text">{{record.mssage}}</p>
+                  <p class="card-text">{{record.message_date}}</p>
+                </div>
+                <div style="display: flex; justify-content: space-evenly; margin-bottom: 14px;">
+                    <form action="/update-record/{{record.id}}" method="post">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </form>
+                    <form action="/delete-this-record/{{record.id}}" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
