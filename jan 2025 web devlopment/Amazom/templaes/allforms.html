@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block firstblock %}
+
+
+<div style="padding-left: 6%; padding-right: 6%; padding-top: 1%;">
+    <h1 style="text-align: center; color: green; margin-bottom: 3%;">All forms</h1>
+
+    <div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            {% for x in alldta %}
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{x.full_name}}</h5>
+                  <h6 class="card-title">Phone Number : {{x.phone_number}}</h6>
+                  <h6 class="card-title">Email : {{x.email}}</h6>
+                  <p class="card-text">Message : {{x.message}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+    </div>
+</div>
+
+{% endblock firstblock %}

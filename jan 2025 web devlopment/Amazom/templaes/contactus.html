@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block firstblock %}
+
+
+
+<div style="padding-left: 18%; padding-right: 18%; padding-top: 3%;">
+    <h1 style = "text-align: center; color: green;">Contact Us Form</h1>
+
+    <form action="/save-data" method="post">
+        {% csrf_token %}
+        <div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                <input type="text" name = "fname" class="form-control" placeholder="Enter your full name...">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email address...">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                <input type="number" class="form-control" name="pnumbr" placeholder="Enter your phone number..">
+            </div>
+    
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                <textarea class="form-control" name="msg" rows="3" placeholder = "Enter your messsage here.."></textarea>
+              </div>
+
+              <div style = "display: flex; justify-content: center;">
+                    <button type="submit" class="btn btn-success">Submit</button>
+              </div>
+    
+        </div>
+    </form>
+
+
+</div>
+
+
+
+
+
+{% endblock firstblock %}
