@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+
+{% block todogo %}
+
+<div style="padding-left: 10%; padding-right: 10%; padding-top: 2%;">
+    <h1 style="text-align: center; color: green;">Add Todo</h1>
+    <div>
+        <form action="/saving" method="post">
+          {% csrf_token %} 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="enter a title..">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" rows="3" name="desc" placeholder="enter the Description"></textarea>
+              </div>
+
+              <div style="text-align: center;">
+                <button type="submit" class="btn btn-success">Add todo</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div style="padding-left: 10%; padding-right: 10%; padding-top: 2%;">
+  <h1 style="text-align: center; color: red;">All Todos</h1>
+  <div>
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Discrption</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        {% for i in alldata %}
+        <tr>
+          <th scope="row">{{i.id}}</th>
+          <td>{{i.title}}</td>
+          <td>{{i.discption}}</td>
+          <td>
+            <div style="display: flex; justify-content: space-between;">
+              <form action="/updatedata/{{i.id}}">
+                <button type="submit" class="btn btn-success">Update</button>
+              </form>
+
+              <form action = "/deletedata/{{i.id}}" method = "post">
+                {% csrf_token %}
+                  <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+
+
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock todogo %}

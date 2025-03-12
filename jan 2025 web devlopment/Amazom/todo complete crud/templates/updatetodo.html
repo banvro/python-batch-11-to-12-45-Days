@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block todogo %}
+
+<div style="padding-left: 10%; padding-right: 10%; padding-top: 2%;">
+    <h1 style="text-align: center; color: green;">Update Todo</h1>
+    <div>
+        <form action="/updatenow/{{data.id}}" method="post">
+          {% csrf_token %} 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Title</label>
+                <input type="text" class="form-control" value = "{{data.title}}" name="title" placeholder="enter a title..">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" rows="3" name="desc" placeholder="enter the Description">{{data.discption}}</textarea>
+              </div>
+
+              <div style="text-align: center;">
+                <button type="submit" class="btn btn-success">Update todo</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock todogo %}
