@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div style="background-color: rgba(48, 226, 48, 0.803);">
+    <div style="padding-left: 20%; padding-right: 20%; padding-top: 3%;">
+        <h1 style="text-align: center; color: green;">Contact Us</h1>
+        <form action = "/savingdata" method = "POST" enctype="multipart/form-data">
+            <div>
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name = "fname" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-Mail</label>
+                    <input type="email" class="form-control" name = "email" placeholder="Enter your email address">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" name = "pnumber" class="form-control" placeholder="Enter your phone number">
+                </div>
+        
+                  <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-control" name = "msg" rows="3" placeholder="Enter your message.."></textarea>
+                  </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Upload Image</label>
+                    <input type="file" name = "myimg" class="form-control" placeholder="Enter your phone number">
+                </div>
+    
+                <div style="text-align: center;">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock main %}

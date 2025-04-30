@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+<div>
+    <h3 style="text-align: center;">All Contact Forms</h3>
+    <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Profile Pic</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Message</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+                {% for record in alldata %}
+                <tr>
+                    <th scope="row">{{record.id}}</th>
+                    <td>
+                      <img style="max-width: 130px;" src="{{record.image_path}}">
+                    </td>
+                    <td>{{record.full_name}}</td>
+                    <td>{{record.email}}</td>
+                    <td>{{record.phon_number}}</td>
+                    <td>{{record.messgae}}</td>
+                    <td>
+                      <form action = "/deletingdata/{{record.id}}" method = "post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+
+                      <a href="/updateing/{{record.id}}">
+                        <button type="button" class="btn btn-warning">Update</button>
+                      </a>
+                    </td>
+                </tr>
+              {% endfor %}
+
+             
+            </tbody>
+          </table>
+    </div>
+</div>
+
+{% endblock main %}

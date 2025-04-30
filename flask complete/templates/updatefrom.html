@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div style="background-color: rgba(48, 226, 48, 0.803);">
+    <div style="padding-left: 20%; padding-right: 20%; padding-top: 3%;">
+        <h1 style="text-align: center; color: green;">Update data</h1>
+        <form action = "/saveinfo/{{mydata.id}}" method = "POST">
+            <div>
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name = "fname" value="{{mydata.full_name}}" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-Mail</label>
+                    <input type="email" class="form-control" value="{{mydata.email}}" name = "email" placeholder="Enter your email address">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" name = "pnumber" value="{{mydata.phon_number}}" class="form-control" placeholder="Enter your phone number">
+                </div>
+        
+                  <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-control" name = "msg" rows="3" placeholder="Enter your message..">{{mydata.messgae}}</textarea>
+                  </div>
+    
+                <div style="text-align: center;">
+                    <button type="submit" class="btn btn-success">update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock main %}
