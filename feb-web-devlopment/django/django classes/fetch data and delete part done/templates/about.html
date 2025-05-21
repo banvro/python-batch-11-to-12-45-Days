@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block hlo %}
+
+<div style="background-color: rgb(37, 228, 31); min-height: 700px;">
+    <div style="padding-left: 12%; padding-right: 12%; padding-top: 2%;">
+    <h2 style="text-align: center;">All Contact Us Forms</h2>
+
+    <div>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+        {% for i in allData %}
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.user_full_name}}</h5>
+                    <h6 class="card-title">{{i.email}}</h6>
+                    <h6 class="card-title">{{i.phone_number}}</h6>
+                    <p class="card-text">{{i.message}}</p>
+
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <button type="button" class="btn btn-success">Update</button>
+                        
+                        <form action="/delete-data/{{i.id}}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+
+        
+        {% endfor %}
+        
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eeeeeeeeeeeeee">
+  Launch demo modal
+</button> -->
+
+{% endblock hlo %}
