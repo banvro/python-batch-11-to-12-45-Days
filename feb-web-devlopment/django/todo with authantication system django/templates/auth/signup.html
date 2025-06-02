@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block home %}
+
+<form action="/register" method="post">
+    {% csrf_token %}
+    <div style="padding-left: 20%; padding-right: 20%;">
+    <div>
+        <h2 style="text-align: center;">Signup Here</h2>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name = "uname" class="form-control" placeholder="Enter your username..">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" name="fname" class="form-control" placeholder="Enter your full name..">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Enter your email address..">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Enter your password..">
+    </div>
+
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Sign up</button>
+    </div>
+
+</div>
+
+</form>
+
+{% endblock home %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block home %}
+<div style="background-color: rgb(184, 189, 195); min-height: 900px;">
+    <div style="padding-left: 12%; padding-right: 12%; padding-top: 2%;">
+        <h2 style="text-align: center;">My To-Dos</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Sr.No.</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in allData %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ i.ta_sk }}</td>
+                    <td>{{ i.descri_ption }}</td>
+                    <td>
+                        <div style="display: flex; justify-content: space-evenly;">
+                            <a href="/update-data/{{ i.id }}">
+                                <button type="button" class="btn btn-success">Update</button>
+                            </a>
+                            <form action="/delete-data/{{ i.id }}" method="post" style="margin: 0;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-dark">Done</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+{% endblock home %}
