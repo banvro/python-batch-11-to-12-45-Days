@@ -1,0 +1,67 @@
+show databases;
+
+create database morning11;
+
+use morning11;
+
+show tables;
+
+
+use morning11;
+
+
+SHOW TABLES;
+
+-- creating a table
+
+create table student_info(
+	stu_id int,
+    stu_name varchar(120),
+	stu_phon varchar(12),
+    stu_addess text
+);
+
+
+
+
+
+select * from student_info;
+
+-- to save data in table
+
+insert into student_info values(
+		103, "javascript", "89956986896", 
+        "this is a address of javascript"
+        );
+
+
+
+
+use morning11;
+
+select * from student_info;
+
+Python ----> connect   -----> mysql
+
+
+
+
+
+use morning11;
+
+create table contact_us(
+	user_id int unique auto_increment,
+    full_name varchar(120),
+    age int,
+    phone_number varchar(12),
+    email varchar(255),
+    message text
+);
+
+
+select * from contact_us;
+
+insert into contact_us(
+	full_name, age, phone_number, email, message
+    ) values('kirss moris', 20, '983842334',
+    'krissmoris@gmail.com', 'this is message from kriss');
