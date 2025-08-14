@@ -1,0 +1,3 @@
+hello pyhton! how are you
+php is a good lanague
+but soldity is use for blockchain
