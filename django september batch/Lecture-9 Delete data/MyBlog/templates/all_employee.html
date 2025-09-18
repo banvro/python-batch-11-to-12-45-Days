@@ -1,0 +1,45 @@
+{% extends "navfooter.html" %}
+
+{% block title %}All Employee{% endblock title %}
+
+{% block bodyblock %}
+
+
+
+<div>
+    <h2 style="text-align: center; padding: 18px; color: green;">All Employee</h2>
+    <div style="padding: 0% 9%;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">empID</th>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">Branch</th>
+                    <th scope="col">Employee Phone Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for i in records %}
+                <tr>
+                    <th scope="row">{{i.id}}</th>
+                    <td>{{i.e_name}}</td>
+                    <td>{{i.e_branch}}</td>
+                    <td>{{i.e_p_num}}</td>
+                    <td>
+                        <form action="/delete-employe/{{i.id}}">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+ 
+{% endblock bodyblock %}
