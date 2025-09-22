@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+
+{% block bodyy %}
+
+<style>
+    .table{
+        --bs-table-bg: #1bcf1b;
+    }
+</style>
+
+
+<div style="padding: 1% 15%;">
+
+    <div style="padding: 1% 14%;
+    background-color: #33cd27;border-radius: 18px; box-shadow: 6px 6px 10px 6px black;">
+        <h2 style="text-align: center; color: green; margin-bottom: 8px;">Add Todo</h2>
+        
+        <form action="/save-todo" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" name="title" class="form-control" placeholder="Enter todo title...">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Decrption</label>
+                <textarea class="form-control" name = "msg" rows="3" placeholder="More about todo...."></textarea>
+            </div>
+
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<hr>
+
+<div>
+    <h2 style="text-align: center; color: green; margin-bottom: 8px;">All Todos</h2>
+
+    <div style="padding: 1% 9%;">
+        <table class="table">
+        <thead style="background-color: red;">
+            <tr>
+                <th scope="col">S.NO</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Added Time</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for todo in todos %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{todo.title}}</td>
+                <td style = "max-width: 600px;">{{todo.dexription}}</td>
+                <td>{{todo.created_at}}</td>
+                <td>
+                    <div style="display: flex ;justify-content: space-evenly;">
+                        <div>
+                            <a href="/delete-todo/{{todo.id}}">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </a>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{todo.id}}">Update</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+
+            <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{todo.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered  modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header" style="background-color: #158f0c;">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Todo</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="background-color: #33cd27;">
+                            <form action="/update-todo/{{todo.id}}" method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" name="title" value="{{todo.title}}" class="form-control" placeholder="Enter todo title...">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Decrption</label>
+                                    <textarea class="form-control" name = "msg" rows="3" placeholder="More about todo....">{{todo.dexription}}</textarea>
+                                </div>
+
+                                <div style="text-align: center;">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer"  style="background-color: #158f0c;">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+        </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+{% endblock bodyy %}
