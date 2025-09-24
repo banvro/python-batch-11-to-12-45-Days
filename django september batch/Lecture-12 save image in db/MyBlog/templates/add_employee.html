@@ -1,0 +1,49 @@
+{% extends "navfooter.html" %}
+
+{% block bodyblock %}
+
+
+<div style="padding: 2% 10%; ">
+    <div style="padding: 2% 8%; background-color: #a3c9d6; border-radius: 18px; box-shadow: 7px 4px 10px 5px #8d8686;">
+        <h2 style="text-align: center; margin-bottom: 2%;">Add Employee</h2>
+
+        <form action="/add-employee" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Employee name</label>
+                <input type="text" class="form-control" name = "enum" placeholder="emter employee name">
+            </div>
+
+            <div>
+                <label class="form-label">Choose branch</label>
+                <select class="form-select" name="branch" aria-label="Default select example">
+                    <option selected>Choose Branch</option>
+                    <option value="Backend Devloper">Backend Devloper</option>
+                    <option value="Frontend Devloper">Frontend Devloper</option>
+                    <option value="Tester">Tester</option>
+                    <option value="Full-Stack Devloper">Full-Stack Devloper</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div class="mb-3">
+                <label class="form-label">Employee Phone Number</label>
+                <input type="tel" name="epnum" class="form-control" placeholder="emter employee phone number">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Upload Employee Image</label>
+                <input type="file" name="eimg" class="form-control">
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn btn-success" type="submit">Add Employee</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock bodyblock %}

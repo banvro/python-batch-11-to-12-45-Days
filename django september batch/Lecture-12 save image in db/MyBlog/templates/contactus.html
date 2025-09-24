@@ -1,0 +1,46 @@
+{% extends "navfooter.html" %}
+
+{% block title %}Contact{% endblock title %}
+
+
+ {% block bodyblock %}
+ 
+ <div style="padding: 2% 10%; ">
+    <div style="padding: 2% 8%; background-color: #a3c9d6; border-radius: 18px; box-shadow: 7px 4px 10px 5px #8d8686;">
+        <h2 style="text-align: center; margin-bottom: 2%;">Contact Us</h2>
+
+        <form action="/save-form-data" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="fname" class="form-control" placeholder="Enter your full name..">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" name = "pnumber" class="form-control" placeholder="Enter your phone number..">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">EMail Id</label>
+                <input type="email" name = "email" class="form-control" placeholder="Enter your email address..">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name = "msg" rows="3" placeholder="Enter your message..."></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Upload Image  </label>
+                <input type="file" name = "img" class="form-control" placeholder="upload your image..">
+            </div>
+
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+
+    </div>
+ </div>
+ 
+ 
+ 
+ 
+{% endblock bodyblock %}

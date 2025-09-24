@@ -1,0 +1,45 @@
+{% extends "navfooter.html" %}
+
+{% block bodyblock %}
+
+
+<div style="padding: 2% 10%; ">
+    <div style="padding: 2% 8%; background-color: #a3c9d6; border-radius: 18px; box-shadow: 7px 4px 10px 5px #8d8686;">
+        <h2 style="text-align: center; margin-bottom: 2%;">Update Employee</h2>
+
+        <form action="/emp-update/{{record.id}}" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Employee name</label>
+                <input type="text" value="{{record.e_name}}" class="form-control" name = "enum" placeholder="emter employee name">
+            </div>
+
+            <div>
+                <label class="form-label">Choose branch</label>
+                <select class="form-select" name="branch" aria-label="Default select example">
+                    <option >Choose Branch</option>
+                    <option selected value="{{record.e_branch}}">{{record.e_branch}}</option>
+                    <option value="Backend Devloper">Backend Devloper</option>
+                    <option value="Frontend Devloper">Frontend Devloper</option>
+                    <option value="Tester">Tester</option>
+                    <option value="Full-Stack Devloper">Full-Stack Devloper</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div class="mb-3">
+                <label class="form-label">Employee Phone Number</label>
+                <input type="tel" name="epnum" value="{{record.e_p_num}}" class="form-control" placeholder="emter employee phone number">
+            </div>
+
+            <div style="text-align: center;">
+                <button class="btn btn-success" type="submit">Update Employee</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock bodyblock %}
